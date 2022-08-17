@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "5535070483",
+    "project_id": "book-app-36514",
+    "storage_bucket": "book-app-36514.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5535070483:android:293307c7c4b2a296ad82e6",
+        "android_client_info": {
+          "package_name": "com.benny.bookapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5535070483-uotl7dnhfjsbkranntfgr54oed83g4qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmwAM1f1mVPYUrR1TC1l5vLGMK4yXbS04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5535070483-uotl7dnhfjsbkranntfgr54oed83g4qg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5535070483:android:453c7b47202057e3ad82e6",
+        "android_client_info": {
+          "package_name": "com.benny.firebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5535070483-uotl7dnhfjsbkranntfgr54oed83g4qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmwAM1f1mVPYUrR1TC1l5vLGMK4yXbS04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5535070483-uotl7dnhfjsbkranntfgr54oed83g4qg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

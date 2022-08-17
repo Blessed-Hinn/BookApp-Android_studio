@@ -9,6 +9,10 @@ import android.widget.Toast
 import com.benny.bookapp.databinding.ActivityLoginBinding
 import com.benny.bookapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
 
@@ -76,5 +80,54 @@ class LoginActivity : AppCompatActivity() {
     private fun loginUser() {
         // 3) Login - Firebase Auth
 
+        //Show progress
+        progressDialog.setMessage("Logging in...")
+        progressDialog.show()
+
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                //Login success
+                checkUser()
+            }
+            .addOnFailureListener { e->
+                //Failed Login
+                progressDialog.dismiss()
+                Toast.makeText(this, "Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+
+
+
+    }
+
+    private fun checkUser() {
+        // Check User
+
+        progressDialog.setMessage("Checking user...")
+
+        val firebaseUser = firebaseAuth.currentUser!!
+
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseUser.uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    progressDialog.dismiss()
+
+                    //Get user type
+                    val userType = snapshot.child("userType").value
+                    if (userType == "user"){
+                        startActivity(Intent(this@LoginActivity, DashboardUserActivity::class.java))
+                        finish()
+                    }
+                    else if (userType == "admin"){
+                        startActivity(Intent(this@LoginActivity, DashboardAdminActivity::class.java))
+                        finish()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
     }
 }

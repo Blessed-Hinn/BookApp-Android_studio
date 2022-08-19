@@ -4,12 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/ic_email_gray.xml" value="0.1" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/ic_pdf_white.xml" value="0.231" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_button01.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_button02.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_edittext01.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_toolbar01.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_toolbar02.xml" value="0.1" />
-        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_category_add.xml" value="0.1391304347826087" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.22" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_user.xml" value="0.14096916299559473" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_login.xml" value="0.18426678067550234" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_main.xml" value="0.33" />

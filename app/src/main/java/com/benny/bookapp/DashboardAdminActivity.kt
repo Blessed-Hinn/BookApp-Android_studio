@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.TextView
 import com.benny.bookapp.databinding.ActivityDashboardAdminBinding
-import com.benny.bookapp.databinding.ActivityDashboardUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -70,6 +68,11 @@ class DashboardAdminActivity : AppCompatActivity() {
         //Handle Click, Add Category
         binding.addCategory.setOnClickListener {
             startActivity(Intent(this, CategoryAddActivity::class.java))
+        }
+
+        //Handle Click, Add Pdf page
+        binding.addPdfFab.setOnClickListener {
+            startActivity(Intent(this, PdfAddActivity::class.java))
         }
     }
 

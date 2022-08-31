@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.app.ProgressDialog
 import android.icu.util.Calendar
+import android.media.AudioTimestamp
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
@@ -17,6 +18,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.core.Context
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
+import kotlin.collections.HashMap
 
 
 class MyApplication : Application() {
@@ -25,16 +27,14 @@ class MyApplication : Application() {
         super.onCreate()
     }
 
-    companion object {
+    companion object{
 
-        /*@SuppressLint("NewApi")
-        fun formatTimeStamp(timestamp: Long) : String {
+        /*fun formatTimeStamp(timestamp: Long) : String{
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp
 
             return DateFormat.format("dd/MM/yyyy", cal).toString()
         }*/
-
         //Function to get pdf size
         fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView) {
             val TAG = "PDF_SIZE_TAG"
@@ -169,6 +169,34 @@ class MyApplication : Application() {
                     Log.d(TAG, "deleteBook: deleteBook: Failed to delete from storage due to ${e.message}")
                     Toast.makeText(context, "Failed to delete due to ${e.message}", Toast.LENGTH_SHORT).show()
                 }
+        }
+
+        fun incrementBookViewCount(bookId: String){
+            val ref = FirebaseDatabase.getInstance().getReference("Books")
+            ref.child(bookId)
+                .addListenerForSingleValueEvent(object: ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+
+                        var viewsCount = "${snapshot.child("viewsCount").value}"
+
+                        if (viewsCount==""|| viewsCount=="null"){
+                            viewsCount = "0";
+                        }
+
+                        val newViewsCount = viewsCount.toLong()+1
+
+                        val hashMap = HashMap<String, Any>()
+                        hashMap["viewsCount"] = newViewsCount
+
+                        val dbRef = FirebaseDatabase.getInstance().getReference("Books")
+                        dbRef.child(bookId)
+                            .updateChildren(hashMap)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+                })
         }
     }
 

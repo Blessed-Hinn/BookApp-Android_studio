@@ -15,12 +15,16 @@
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_category_add.xml" value="0.1391304347826087" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.22" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_user.xml" value="0.14096916299559473" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_edit_pdf.xml" value="0.17272338606241983" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_login.xml" value="0.18426678067550234" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_pdf.xml" value="0.25" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_pdf_edit.xml" value="0.33" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_pdf_list_admin.xml" value="0.1415929203539823" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_splash.xml" value="0.21" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/row_category.xml" value="0.25" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/row_pdf_admin.xml" value="0.22" />
       </map>
     </option>
   </component>

@@ -36,9 +36,9 @@
 
     <!--All Contents under scrollview-->
     <ScrollView
-        android:layout_above="@+id/bookOptionsLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/bookOptionsLl"
         android:layout_below="@id/toolbarRl"
         android:padding="10dp">
 
@@ -114,6 +114,7 @@
 
                     <!--Date Row-->
                     <TableRow android:layout_marginTop="5dp">
+
                         <TextView
                             android:id="@+id/dateLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -134,6 +135,7 @@
 
                     <!--Size Row-->
                     <TableRow android:layout_marginTop="5dp">
+
                         <TextView
                             android:id="@+id/sizeLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -154,6 +156,7 @@
 
                     <!--Views Count  Row-->
                     <TableRow android:layout_marginTop="5dp">
+
                         <TextView
                             android:id="@+id/viewsLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -174,6 +177,7 @@
 
                     <!--Download Row-->
                     <TableRow android:layout_marginTop="5dp">
+
                         <TextView
                             android:id="@+id/downloadLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -194,6 +198,7 @@
 
                     <!--Number of pages Row-->
                     <TableRow android:layout_marginTop="5dp">
+
                         <TextView
                             android:id="@+id/pagesLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -223,7 +228,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="The Description of the book"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </LinearLayout>
     </ScrollView>
 
@@ -232,17 +237,28 @@
         android:id="@+id/bookOptionsLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:background="@color/design_default_color_primary">
+        android:background="@color/design_default_color_primary"
+        android:orientation="horizontal">
 
+        <!--Button Read Book-->
         <Button
             android:id="@+id/readBookBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_book_white"
+            android:text="Read" />
+
+        <!--Button - Download-->
+        <Button
+            android:id="@+id/downloadBookBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Read"
-            android:drawableTop="@drawable/ic_book_white"
-            android:layout_weight="1"/>
+            android:text="Download"
+            android:drawableTop="@drawable/ic_save_white"
+            android:layout_weight="0"/>
+
     </LinearLayout>
 
 </RelativeLayout>

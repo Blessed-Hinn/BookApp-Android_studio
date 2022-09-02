@@ -315,7 +315,7 @@ class PdfDetailActivity : AppCompatActivity() {
             }
     }
 
-    private fun removeFromFavorite(){
+    public fun removeFromFavorite(){
         Log.d(TAG, "removeFromFavorite: Remove from fav")
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
@@ -331,4 +331,6 @@ class PdfDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to remove form favorites due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+
 }

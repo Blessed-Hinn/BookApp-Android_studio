@@ -1,13 +1,8 @@
 package com.benny.bookapp
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.app.ProgressDialog
-import android.icu.util.Calendar
-import android.media.AudioTimestamp
-import android.text.format.DateFormat
 import android.util.Log
-import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -15,10 +10,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.core.Context
 import com.google.firebase.storage.FirebaseStorage
-import java.util.*
-import kotlin.collections.HashMap
 
 
 class MyApplication : Application() {
@@ -198,6 +190,28 @@ class MyApplication : Application() {
                     }
                 })
         }
+
+        /*public fun removeFromFavorite(context: Context, bookId: String){
+
+            val TAG = "REMOVE_FAV_TAB"
+
+            Log.d(TAG, "removeFromFavorite: Remove from fav")
+
+            val firebaseAuth = FirebaseAuth.getInstance();
+
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+                .removeValue()
+                .addOnSuccessListener {
+                    Log.d(TAG, "addToFavorite: Removed from Fav")
+                     Toast.makeText(context, "Removed from favorite", Toast.LENGTH_SHORT).
+
+                }
+                .addOnFailureListener { e->
+                    Log.d(TAG, "removeFromFavorite: Failed to remove from favorites due to ${e.message}")
+                    Toast.makeText(context, "Failed to remove form favorites due to ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        }*/
     }
 
 }

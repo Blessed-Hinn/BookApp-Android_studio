@@ -1,9 +1,10 @@
-package com.benny.bookapp
+package com.benny.bookapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.benny.bookapp.Constants
 import com.benny.bookapp.databinding.ActivityPdfViewBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -62,7 +63,7 @@ class PdfViewActivity : AppCompatActivity() {
             .addOnSuccessListener {bytes->
                 Log.d(TAG, "loadBookFromUrl: pdf got from url")
                     
-                    binding.pdfView.fromBytes(bytes)
+                    /*binding.pdfView.fromBytes(bytes)
                         .swipeHorizontal(false)
                         .onPageChange{page, pageCount->
                             val currentPage = page+1
@@ -74,8 +75,8 @@ class PdfViewActivity : AppCompatActivity() {
                     }
                         .onPageError{page, t ->
                             Log.d(TAG, "loadBookFromUrl: ${t.message}")
-                        }
-                        .load()
+                        }*//*
+                        .load()*/
                     binding.progressBar.visibility = View.GONE
             }
             .addOnFailureListener {e->

@@ -1,11 +1,13 @@
-package com.benny.bookapp
+package com.benny.bookapp.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.appcompat.app.AppCompatActivity
+import com.benny.bookapp.adapters.AdapterCategory
 import com.benny.bookapp.databinding.ActivityDashboardAdminBinding
+import com.benny.bookapp.models.ModelCategory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -73,6 +75,10 @@ class DashboardAdminActivity : AppCompatActivity() {
         //Handle Click, Add Pdf page
         binding.addPdfFab.setOnClickListener {
             startActivity(Intent(this, PdfAddActivity::class.java))
+        }
+
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 

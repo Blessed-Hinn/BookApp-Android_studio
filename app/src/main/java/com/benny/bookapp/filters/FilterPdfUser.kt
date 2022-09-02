@@ -1,6 +1,8 @@
-package com.benny.bookapp
+package com.benny.bookapp.filters
 
 import android.widget.Filter
+import com.benny.bookapp.adapters.AdapterPdfUser
+import com.benny.bookapp.models.ModelPdf
 
 class FilterPdfUser : Filter {
 

@@ -1,10 +1,9 @@
-package com.benny.bookapp
+package com.benny.bookapp.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.benny.bookapp.databinding.ActivityMainBinding
-import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {

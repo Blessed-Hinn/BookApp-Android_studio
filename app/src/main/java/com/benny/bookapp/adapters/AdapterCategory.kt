@@ -1,14 +1,17 @@
-package com.benny.bookapp
+package com.benny.bookapp.adapters
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.benny.bookapp.databinding.RowCategoryBinding
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.RecyclerView
+import com.benny.bookapp.filters.FilterCategory
+import com.benny.bookapp.models.ModelCategory
+import com.benny.bookapp.activities.PdfListAdminActivity
+import com.benny.bookapp.databinding.RowCategoryBinding
 import com.google.firebase.database.FirebaseDatabase
 
 

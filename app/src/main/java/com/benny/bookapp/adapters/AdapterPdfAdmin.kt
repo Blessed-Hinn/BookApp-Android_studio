@@ -1,4 +1,4 @@
-package com.benny.bookapp
+package com.benny.bookapp.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,12 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.benny.bookapp.*
+import com.benny.bookapp.activities.PdfDetailActivity
+import com.benny.bookapp.activities.PdfEditActivity
 import com.benny.bookapp.databinding.RowPdfAdminBinding
+import com.benny.bookapp.filters.FilterPdfAdmin
+import com.benny.bookapp.models.ModelPdf
 
 class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
 
@@ -70,7 +75,12 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fil
         MyApplication.loadCategory(categoryId = categoryId, holder.categoryTv)
 
         //Load PDF Thumbnail
-        MyApplication.loadPdfFromUrlSinglePage(pdfUrl, title, holder.progressBar, null /*holder.pdfView*/)
+        MyApplication.loadPdfFromUrlSinglePage(
+            pdfUrl,
+            title,
+            holder.progressBar,
+            null /*holder.pdfView*/
+        )
 
         //Load pdf size
         MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
@@ -86,7 +96,7 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fil
         }
     }
 
-    private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+    private fun moreOptionsDialog(model: ModelPdf, holder: HolderPdfAdmin) {
             //Get Id, url , title of book
         val bookId = model.id
         val bookUrl = model.url

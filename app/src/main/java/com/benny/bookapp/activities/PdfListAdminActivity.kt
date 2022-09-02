@@ -1,13 +1,13 @@
-package com.benny.bookapp
+package com.benny.bookapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.benny.bookapp.adapters.AdapterPdfAdmin
 import com.benny.bookapp.databinding.ActivityPdfListAdminBinding
-import com.benny.bookapp.databinding.RowPdfAdminBinding
+import com.benny.bookapp.models.ModelPdf
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase

@@ -1,12 +1,10 @@
-package com.benny.bookapp
+package com.benny.bookapp.activities
 
 import android.app.ProgressDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.benny.bookapp.databinding.ActivityCategoryAddBinding
-import com.benny.bookapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 

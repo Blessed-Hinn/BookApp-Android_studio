@@ -1,4 +1,4 @@
-package com.benny.bookapp
+package com.benny.bookapp.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.benny.bookapp.filters.FilterPdfUser
+import com.benny.bookapp.models.ModelPdf
+import com.benny.bookapp.MyApplication
+import com.benny.bookapp.activities.PdfDetailActivity
 import com.benny.bookapp.databinding.RowPdfUserBinding
 
 class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable{
@@ -55,7 +59,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
 
         MyApplication.loadPdfFromUrlSinglePage(url, title, holder.progressBar, null)//holder.pdfView
 
-        MyApplication.loadCategory("categoryId",  holder.categoryTv)
+        MyApplication.loadCategory("categoryId", holder.categoryTv)
 
         MyApplication.loadPdfSize(url, title, holder.sizeTv)
 

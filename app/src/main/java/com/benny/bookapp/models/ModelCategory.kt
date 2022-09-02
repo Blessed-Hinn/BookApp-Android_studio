@@ -1,4 +1,4 @@
-package com.benny.bookapp
+package com.benny.bookapp.models
 
 class ModelCategory {
 

@@ -1,7 +1,7 @@
-package com.benny.bookapp
+package com.benny.bookapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.benny.bookapp.databinding.ActivityEditPdfBinding
 
 class EditPdfActivity : AppCompatActivity() {

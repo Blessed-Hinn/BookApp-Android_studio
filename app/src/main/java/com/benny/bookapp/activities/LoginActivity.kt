@@ -54,6 +54,10 @@ class LoginActivity : AppCompatActivity() {
              */
             validateData()
         }
+
+        binding.forgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
     }
 
     private var email = ""

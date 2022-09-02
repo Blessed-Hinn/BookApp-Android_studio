@@ -16,8 +16,10 @@ import androidx.core.content.ContextCompat
 import com.benny.bookapp.Constants
 import com.benny.bookapp.MyApplication
 import com.benny.bookapp.R
+import com.benny.bookapp.adapters.AdapterComment
 import com.benny.bookapp.databinding.ActivityPdfDetailBinding
 import com.benny.bookapp.databinding.DialogCommentAddBinding
+import com.benny.bookapp.models.ModelComment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -47,6 +49,10 @@ class PdfDetailActivity : AppCompatActivity() {
 
     private lateinit var progressDialog: ProgressDialog
 
+    private lateinit var commentArrayList: ArrayList<ModelComment>
+
+    private lateinit var adapterComment: AdapterComment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPdfDetailBinding.inflate(layoutInflater)
@@ -69,6 +75,7 @@ class PdfDetailActivity : AppCompatActivity() {
         MyApplication.incrementBookViewCount(bookId)
 
         loadBookDetails()
+        showComments()
 
         binding.backBtn.setOnClickListener {
             onBackPressed()
@@ -117,6 +124,33 @@ class PdfDetailActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun showComments() {
+
+        commentArrayList = ArrayList()
+
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).child("Comments")
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    commentArrayList.clear()
+                    for (ds in snapshot.children)
+                    {
+                        val model = ds.getValue(ModelComment::class.java)
+
+                        commentArrayList.add(model!!)
+                    }
+
+                    adapterComment = AdapterComment(this@PdfDetailActivity, commentArrayList)
+
+                    binding.commentsRv.adapter = adapterComment
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
     }
 
     private var comment = ""

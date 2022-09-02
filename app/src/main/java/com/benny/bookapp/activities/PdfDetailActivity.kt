@@ -7,14 +7,17 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.benny.bookapp.Constants
 import com.benny.bookapp.MyApplication
 import com.benny.bookapp.R
 import com.benny.bookapp.databinding.ActivityPdfDetailBinding
+import com.benny.bookapp.databinding.DialogCommentAddBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -58,7 +61,7 @@ class PdfDetailActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        if (firebaseAuth.currentUser != null){
+        if (firebaseAuth.currentUser != null) {
             checkIsFavorite()
         }
 
@@ -95,18 +98,79 @@ class PdfDetailActivity : AppCompatActivity() {
 
         binding.favoriteBtn.setOnClickListener {
 
-            if (firebaseAuth.currentUser == null){
+            if (firebaseAuth.currentUser == null) {
                 Toast.makeText(this, "You're not logged in...", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                if (isInMyFavorite){
+            } else {
+                if (isInMyFavorite) {
                     removeFromFavorite()
-                }
-                else {
+                } else {
                     addToFavorite()
                 }
             }
         }
+
+        binding.addCommentBtn.setOnClickListener {
+            if (firebaseAuth.currentUser == null) {
+                Toast.makeText(this, "You're not logged in", Toast.LENGTH_SHORT).show()
+            } else {
+                addCommentDialog()
+            }
+        }
+
+    }
+
+    private var comment = ""
+
+    private fun addCommentDialog() {
+        val commentAddBinding = DialogCommentAddBinding.inflate(LayoutInflater.from(this))
+
+        val builder = AlertDialog.Builder(this, R.style.CustomDialog)
+        builder.setView(commentAddBinding.root)
+
+        val alertDialog = builder.create()
+        alertDialog.show()
+
+        commentAddBinding.backBtn.setOnClickListener { alertDialog.dismiss() }
+
+        commentAddBinding.submitBtn.setOnClickListener {
+            comment = commentAddBinding.commentEt.text.toString().trim()
+
+            if (comment.isEmpty()){
+                Toast.makeText(this, "You're not logged in", Toast.LENGTH_SHORT).show()
+
+            }
+            else {
+                alertDialog.dismiss()
+                addComment()
+            }
+        }
+
+    }
+
+    private fun addComment() {
+        progressDialog.setMessage("Adding Comment")
+        progressDialog.show()
+
+        val timeStamp = "${System.currentTimeMillis()}"
+
+        val hashMap = HashMap<String, Any>()
+        hashMap["id"] = "$timeStamp"
+        hashMap["bookId"] = "$bookId"
+        hashMap["timestamp"] = "$timeStamp"
+        hashMap["comment"] = "$comment"
+        hashMap["uid"] = "${firebaseAuth.uid}"
+
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).child("Comments").child(timeStamp)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                Toast.makeText(this, "Comment added", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e->
+                progressDialog.dismiss()
+                Toast.makeText(this, "Failed to add comment due to ${e.message}", Toast.LENGTH_SHORT).show()
+            }
 
     }
 
@@ -260,27 +324,30 @@ class PdfDetailActivity : AppCompatActivity() {
             })
     }
 
-    private fun checkIsFavorite(){
+    private fun checkIsFavorite() {
         Log.d(TAG, "checkIsFavorite: Checking if book is in fav or not")
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     isInMyFavorite = snapshot.exists()
-                    if (isInMyFavorite){
+                    if (isInMyFavorite) {
 
                         Log.d(TAG, "onDataChange: Available in favorites")
 
-                        binding.favoriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(0,
-                            R.drawable.ic_favorite_filled_white, 0, 0)
+                        binding.favoriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_favorite_filled_white, 0, 0
+                        )
                         binding.favoriteBtn.text = "Remove Favorite"
-                    }
-                    else {
+                    } else {
                         Log.d(TAG, "onDataChange:Not available in favorites")
 
-                        binding.favoriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(0,
-                            R.drawable.ic_favorite_white, 0, 0)
+                        binding.favoriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_favorite_white, 0, 0
+                        )
                         binding.favoriteBtn.text = "Add Favorite"
                     }
                 }
@@ -291,7 +358,7 @@ class PdfDetailActivity : AppCompatActivity() {
             })
     }
 
-    private fun addToFavorite(){
+    private fun addToFavorite() {
         Log.d(TAG, "addToFavorite: Adding to fav")
         val timestamp = System.currentTimeMillis()
 
@@ -309,13 +376,13 @@ class PdfDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Added to Fav", Toast.LENGTH_SHORT).show()
 
             }
-            .addOnFailureListener { e->
+            .addOnFailureListener { e ->
                 Log.d(TAG, "addToFavorite: Failed to add due to ${e.message}")
                 Toast.makeText(this, "Failed to add due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
-    public fun removeFromFavorite(){
+    public fun removeFromFavorite() {
         Log.d(TAG, "removeFromFavorite: Remove from fav")
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
@@ -326,9 +393,16 @@ class PdfDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Removed from Fav", Toast.LENGTH_SHORT).show()
 
             }
-            .addOnFailureListener { e->
-                Log.d(TAG, "removeFromFavorite: Failed to remove from favorites due to ${e.message}")
-                Toast.makeText(this, "Failed to remove form favorites due to ${e.message}", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener { e ->
+                Log.d(
+                    TAG,
+                    "removeFromFavorite: Failed to remove from favorites due to ${e.message}"
+                )
+                Toast.makeText(
+                    this,
+                    "Failed to remove form favorites due to ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 

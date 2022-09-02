@@ -12,6 +12,8 @@
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_edittext01.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_toolbar01.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/shape_toolbar02.xml" value="0.1" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/tab_background_selected.xml" value="0.1" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/drawable/tab_selector.xml" value="0.1" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_category_add.xml" value="0.1391304347826087" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.22" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_dashboard_user.xml" value="0.14096916299559473" />
@@ -25,8 +27,10 @@
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_pdf_view.xml" value="0.13100634632819583" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/activity_splash.xml" value="0.21" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/fragment_book_user.xml" value="0.13100634632819583" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/row_category.xml" value="0.25" />
         <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/row_pdf_admin.xml" value="0.22" />
+        <entry key="..\:/Users/Machache Hinn/AndroidStudioProjects/BookApp/app/src/main/res/layout/row_pdf_user.xml" value="0.21" />
       </map>
     </option>
   </component>

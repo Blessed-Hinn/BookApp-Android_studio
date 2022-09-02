@@ -115,7 +115,7 @@ class PdfDetailActivity : AppCompatActivity() {
     private fun saveToDownLoadFolder(bytes: ByteArray) {
         Log.d(TAG, "saveToDownLoadFolder: Saving downloaded book")
 
-        val nameWithExtension = "${System.currentTimeMillis()}.pdf"
+        val nameWithExtension = "${System.currentTimeMillis() }.pdf"
 
         try {
             val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)

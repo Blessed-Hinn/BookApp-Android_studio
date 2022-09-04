@@ -252,10 +252,10 @@
                     android:id="@+id/addCommentBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:background="@android:color/transparent"
                     android:padding="10dp"
-                    android:src="@drawable/ic_comment_black"
-                    android:layout_alignParentEnd="true"/>
+                    android:src="@drawable/ic_comment_black" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/commentsRv"

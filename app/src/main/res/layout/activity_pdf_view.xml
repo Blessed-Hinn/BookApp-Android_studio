@@ -49,11 +49,11 @@
     </RelativeLayout>
 
     <!--PDFView-->
-    <!--<com.github.barteksc.pdfviewer.PDFView
+    <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        below="@id/toolbarRl"/>-->
+        below="@id/toolbarRl"/>
 
     <!--Progress BAr: Show while book is loading-->
     <ProgressBar

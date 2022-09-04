@@ -66,8 +66,9 @@ class PdfViewActivity : AppCompatActivity() {
         reference.getBytes(Constants.MAX_BYTES_PDF)
             .addOnSuccessListener {bytes->
                 Log.d(TAG, "loadBookFromUrl: pdf got from url")
-                    
-                    binding.pdfV .fromBytes(bytes)
+
+
+                    binding.pdfView.fromBytes(bytes)
                         .swipeHorizontal(false)
                         .onPageChange{page, pageCount->
                             val currentPage = page+1

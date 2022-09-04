@@ -60,11 +60,11 @@
                     android:layout_marginEnd="5dp"
                     android:background="@color/gray02">
 
-                    <!--PDFView-->
-                    <!--<com.github.barteksc.pdfviewer.PDFView
+                    <!--Pdf View-->
+                    <com.github.barteksc.pdfviewer.PDFView
                         android:id="@+id/pdfView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>-->
+                        android:layout_height="match_parent"/>
 
                     <!--ProgressBar-->
                     <ProgressBar
@@ -262,8 +262,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/addCommentBtn"
-                    tools:listitem="@layout/row_comment"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_comment" />
 
             </RelativeLayout>
 
@@ -298,6 +298,8 @@
             android:textSize="10sp"
             android:drawableTop="@drawable/ic_save_white"
             android:layout_weight="0"/>
+
+
 
         <Button
             android:id="@+id/favoriteBtn"

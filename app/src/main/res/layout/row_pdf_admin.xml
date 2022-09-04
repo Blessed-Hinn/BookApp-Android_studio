@@ -20,10 +20,10 @@
             android:background="@color/gray02">
 
             <!--Pdf View-->
-           <!-- <com.github.barteksc.pdfviewer.PDFView
+            <com.github.barteksc.pdfviewer.PDFView
                 android:id="@+id/pdfView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>-->
+                android:layout_height="match_parent"/>
 
             <!--ProgressBar-->
             <ProgressBar

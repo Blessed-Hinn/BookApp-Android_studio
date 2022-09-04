@@ -12,9 +12,13 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
+
+
 class PdfViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfViewBinding
+
+
 
     //TAG
     private companion object{
@@ -32,7 +36,7 @@ class PdfViewActivity : AppCompatActivity() {
         loadBookDetails()
 
         binding.backBtn.setOnClickListener {
-
+            onBackPressed()
         }
     }
 
@@ -63,7 +67,7 @@ class PdfViewActivity : AppCompatActivity() {
             .addOnSuccessListener {bytes->
                 Log.d(TAG, "loadBookFromUrl: pdf got from url")
                     
-                    /*binding.pdfView.fromBytes(bytes)
+                    binding.pdfV .fromBytes(bytes)
                         .swipeHorizontal(false)
                         .onPageChange{page, pageCount->
                             val currentPage = page+1
@@ -75,8 +79,8 @@ class PdfViewActivity : AppCompatActivity() {
                     }
                         .onPageError{page, t ->
                             Log.d(TAG, "loadBookFromUrl: ${t.message}")
-                        }*//*
-                        .load()*/
+                        }
+                        .load()
                     binding.progressBar.visibility = View.GONE
             }
             .addOnFailureListener {e->

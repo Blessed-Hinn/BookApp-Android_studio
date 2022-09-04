@@ -67,12 +67,11 @@ class PdfAddActivity : AppCompatActivity() {
 
         //Handle click, pick pdf intent
         binding.attachPdfBtn.setOnClickListener {
-
             //2: Upload pdf to firebase
-            //3: Get url of uploaded pdf
-            //4: Upload pdf info to firebase db
+            pdfPickIntent()
+        }
 
-
+        binding.submitBtn.setOnClickListener {
             validateData()
         }
     }
@@ -121,10 +120,10 @@ class PdfAddActivity : AppCompatActivity() {
         val timestamp = System.currentTimeMillis()
 
         //Path of pdf in firebase storage
-        val filePathAndNAme = "Book/$timestamp"
+        val filePathAndNAme = "Books/$timestamp"
         //Storage reference
-        val storageRefence = FirebaseStorage.getInstance().getReference(filePathAndNAme)
-        storageRefence.putFile(pdfUrl!!)
+        val storageReference = FirebaseStorage.getInstance().getReference(filePathAndNAme)
+        storageReference.putFile(pdfUrl!!)
             .addOnSuccessListener {taskSnapshot ->
                 Log.d(TAG, "uploadPdfToStorage: PDF uploaded now getting url...")
 
@@ -234,7 +233,7 @@ class PdfAddActivity : AppCompatActivity() {
                 binding.categoryTv.text = selectedCategoryTitle
 
                 Log.d(TAG, "categoryPickDialog: Selected Category ID: $selectedCategoryId")
-                Log.d(TAG, "categoryPickDialog: Selected Category ID: $selectedCategoryTitle")
+                Log.d(TAG, "categoryPickDialog: Selected Category Title: $selectedCategoryTitle")
             }
             .show()
     }
@@ -245,6 +244,7 @@ class PdfAddActivity : AppCompatActivity() {
         intent.type = "application/pdf"
         intent.action = Intent.ACTION_GET_CONTENT
         pdfActivityResultLauncher.launch(intent)
+
     }
 
     val pdfActivityResultLauncher = registerForActivityResult(

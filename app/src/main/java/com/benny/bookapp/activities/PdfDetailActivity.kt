@@ -338,9 +338,11 @@ class PdfDetailActivity : AppCompatActivity() {
                     MyApplication.loadPdfFromUrlSinglePage(
                         "$bookUrl",
                         "$bookTitle",
+                        binding.pdfView,
                         binding.progressBar,
-                        binding.pagesTv
-                    ) //binding.pdfView)
+                        binding.pagesTv,
+
+                    )
 
                     MyApplication.loadPdfSize("$bookUrl", "$bookTitle", binding.sizeTv)
 

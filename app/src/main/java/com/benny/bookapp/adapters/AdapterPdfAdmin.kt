@@ -9,7 +9,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.benny.bookapp.*
+import com.benny.bookapp.MyApplication
 import com.benny.bookapp.activities.PdfDetailActivity
 import com.benny.bookapp.activities.PdfEditActivity
 import com.benny.bookapp.databinding.RowPdfAdminBinding
@@ -71,6 +71,7 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fil
 
         //Load further details like category, pdf from url, pdf size
 
+
         //Category Id
         MyApplication.loadCategory(categoryId = categoryId, holder.categoryTv)
 
@@ -78,8 +79,9 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fil
         MyApplication.loadPdfFromUrlSinglePage(
             pdfUrl,
             title,
+            holder.pdfView,
             holder.progressBar,
-            null /*holder.pdfView*/
+            null
         )
 
         //Load pdf size
@@ -114,6 +116,7 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fil
                     context.startActivity(intent)
                 }
                 else if (position == 1){
+
                     MyApplication.deleteBook(context, bookId, bookUrl, bookTitle)
                 }
 
@@ -137,7 +140,7 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fil
     /*View Holder class for row_pdf_admin.xml */
     inner class HolderPdfAdmin(itemView: View) : RecyclerView.ViewHolder(itemView){
         //UI Views of row_pdf_admin.xml
-        //val pdfView = binding.pdfView
+       val pdfView = binding.pdfView
         val progressBar = binding.progressBar
         val titleTv = binding.titleTv
         val descriptionTv = binding.descriptionTv

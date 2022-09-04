@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import com.benny.bookapp.filters.FilterPdfUser
-import com.benny.bookapp.models.ModelPdf
 import com.benny.bookapp.MyApplication
 import com.benny.bookapp.activities.PdfDetailActivity
 import com.benny.bookapp.databinding.RowPdfUserBinding
+import com.benny.bookapp.filters.FilterPdfUser
+import com.benny.bookapp.models.ModelPdf
 
 class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable{
 
@@ -57,7 +57,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
         holder.descriptionTv.text = description
         //holder.dateTv = date
 
-        MyApplication.loadPdfFromUrlSinglePage(url, title, holder.progressBar, null)//holder.pdfView
+        MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
 
         MyApplication.loadCategory("categoryId", holder.categoryTv)
 
@@ -84,6 +84,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
 
     inner class HolderPdfUser(itemView: View): RecyclerView.ViewHolder(itemView){
 
+        var pdfView = binding.pdfView
         var progressBar = binding.progressBar
         var titleTv = binding.titleTv
         var descriptionTv = binding.descriptionTv

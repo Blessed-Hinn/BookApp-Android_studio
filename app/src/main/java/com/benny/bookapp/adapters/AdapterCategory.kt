@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.benny.bookapp.filters.FilterCategory
-import com.benny.bookapp.models.ModelCategory
 import com.benny.bookapp.activities.PdfListAdminActivity
 import com.benny.bookapp.databinding.RowCategoryBinding
+import com.benny.bookapp.filters.FilterCategory
+import com.benny.bookapp.models.ModelCategory
 import com.google.firebase.database.FirebaseDatabase
 
 
@@ -49,6 +49,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fi
         val id = model.id
         val category = model.category
         val timestamp = model.timestamp
+
+        holder.categoryTv.text = category
 
         //Set data
         holder.deleteBtn.setOnClickListener {

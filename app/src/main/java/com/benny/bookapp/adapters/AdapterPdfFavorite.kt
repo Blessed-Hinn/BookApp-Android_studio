@@ -78,7 +78,7 @@ class AdapterPdfFavorite  :RecyclerView.Adapter<AdapterPdfFavorite.HolderPdfFavo
 
 
                     MyApplication.loadCategory("$categoryId", holder.categoryTv)
-                    MyApplication.loadPdfFromUrlSinglePage("$url", "$title", holder.progressBar, null)
+                    MyApplication.loadPdfFromUrlSinglePage("$url", "$title", holder.pdfView, holder.progressBar, null)
                     MyApplication.loadPdfSize("$url", "$title", holder.sizeTv)
 
                     holder.titleTv.text = title
@@ -99,6 +99,7 @@ class AdapterPdfFavorite  :RecyclerView.Adapter<AdapterPdfFavorite.HolderPdfFavo
 
     inner class HolderPdfFavorite(itemView: View) : RecyclerView.ViewHolder(itemView){
 
+        var pdfView = binding.pdfView
         var progressBar = binding.progressBar
         var titleTv = binding.titleTv
         var removeFavBtn = binding.removeFavBtn
